@@ -1,0 +1,95 @@
+# Build Results
+bin/
+obj/
+out/
+
+# User-specific files
+*.user
+*.userosscache
+*.suo
+*.sln.docstates
+*.vsp
+*.vspscc
+*.vssscc
+*.ncb
+*.cache
+*.dbmdl
+*.pdb
+*.opendb
+
+# Rider (JetBrains)
+.idea/
+*.sln.iml
+
+# Visual Studio
+.vs/
+*.csproj.user
+
+# ASP.NET Scaffolding
+ScaffoldingReadMe.txt
+
+# IIS Express
+.vscode/
+.vscode/*
+
+# Logs
+*.log
+*.tlog
+
+# Visual Studio Code
+.history/
+.vscode/
+.vscode/*
+
+# dotenv environment files
+*.env
+
+# Other
+*.DS_Store
+Thumbs.db
+Desktop.ini
+
+# Paket yönetimi
+node_modules/
+bower_components/
+packages/
+*.nupkg
+
+# Publish çıktısı
+publish/
+wwwroot/
+
+# Test çıktıları
+TestResults/
+*.coverage
+*.coveragexml
+*.trx
+
+
+
+# Git klasörlerini karışıklığa sokmasın
+.git/
+
+# Dump files
+*.dmp
+
+# Resharper
+_ReSharper*/
+*.DotSettings.user
+
+# SonarQube
+.sonar/
+
+# Coverage tools
+coverage/
+coverage.info
+lcov-report/
+
+# NuGet
+project.lock.json
+project.fragment.lock.json
+artifacts/
+
+# Paket restore
+*.nuget.props
+*.nuget.targets
