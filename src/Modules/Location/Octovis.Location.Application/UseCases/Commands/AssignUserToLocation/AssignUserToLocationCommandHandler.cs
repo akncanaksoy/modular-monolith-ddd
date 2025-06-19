@@ -12,10 +12,10 @@ namespace Octovis.Location.Application.UseCases.Commands.AssignUserToLocation
     {
         private readonly IAuthorizationService _authService;
         private readonly ILocationRepository _locationRepository;
-        private readonly IUnitOfWork _unitOfWork;
+        private readonly ILocationUnitOfWork _unitOfWork;
         private readonly IUserService _userService;
 
-        public AssignUserToLocationCommandHandler(ILocationRepository locationRepository, IUnitOfWork unitOfWork, IUserService userService, IAuthorizationService authService)
+        public AssignUserToLocationCommandHandler(ILocationRepository locationRepository, ILocationUnitOfWork unitOfWork, IUserService userService, IAuthorizationService authService)
         {
             _locationRepository = locationRepository;
             _unitOfWork = unitOfWork;
@@ -26,7 +26,7 @@ namespace Octovis.Location.Application.UseCases.Commands.AssignUserToLocation
         public async Task<bool> Handle(AssignUserToLocationCommand request, CancellationToken cancellationToken)
         {
 
-            _authService.CheckPermission(Claims.AssignUserToLocation);
+            // _authService.CheckPermission(Claims.AssignUserToLocation);
 
             // belki burada sonra  o locationa ait mi diye bakılır. 
 

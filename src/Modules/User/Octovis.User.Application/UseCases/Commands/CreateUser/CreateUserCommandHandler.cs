@@ -12,9 +12,9 @@ namespace Octovis.User.Application.UseCases.Commands.CreateUser
     public class CreateUserCommandHandler : IRequestHandler<CreateUserCommand, bool>
     {
         private readonly IUserRepository _userRepository;
-        private readonly IUnitOfWork _unitOfWork;
+        private readonly IUserUnitOfWork _unitOfWork;
 
-        public CreateUserCommandHandler(IUserRepository userRepository, IUnitOfWork unitOfWork)
+        public CreateUserCommandHandler(IUserRepository userRepository, IUserUnitOfWork unitOfWork)
         {
             _userRepository = userRepository;
             _unitOfWork = unitOfWork;

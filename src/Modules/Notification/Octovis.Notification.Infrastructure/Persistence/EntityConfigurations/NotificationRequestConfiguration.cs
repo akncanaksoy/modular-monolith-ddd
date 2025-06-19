@@ -19,13 +19,45 @@ namespace Octovis.Notification.Infrastructure.Persistence.EntityConfigurations
                    .HasConversion<int>()
                    .IsRequired();
 
+
             builder.HasDiscriminator<string>("RequestType")
                    .HasValue<NotificationRequestEmail>("Email")
                    .HasValue<NotificationRequestSms>("Sms");
 
+
             builder.HasMany(r => r.Logs)
                    .WithOne()
                    .OnDelete(DeleteBehavior.Cascade);
+        }
+    }
+
+    public class NotificationRequestEmailConfiguration : IEntityTypeConfiguration<NotificationRequestEmail>
+    {
+        public void Configure(EntityTypeBuilder<NotificationRequestEmail> builder)
+        {
+            builder.Property(e => e.EmailTo)
+                   .HasMaxLength(150)
+                   .IsRequired(false); // Çünkü SMS için null olabilir
+
+            builder.Property(e => e.Subject)
+                   .HasMaxLength(200)
+                   .IsRequired(false);
+
+            builder.Property(e => e.Body)
+                   .IsRequired(false);
+        }
+    }
+
+    public class NotificationRequestSmsConfiguration : IEntityTypeConfiguration<NotificationRequestSms>
+    {
+        public void Configure(EntityTypeBuilder<NotificationRequestSms> builder)
+        {
+            builder.Property(s => s.PhoneNumber)
+                   .HasMaxLength(20)
+                   .IsRequired(false); // Email için null olabilir
+
+            builder.Property(s => s.Message)
+                   .IsRequired(false);
         }
     }
 

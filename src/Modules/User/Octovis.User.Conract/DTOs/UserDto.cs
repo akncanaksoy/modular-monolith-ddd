@@ -16,13 +16,12 @@ namespace Octovis.User.Conract.DTOs
 
         public UserDto ConvertUserDto(string userName, string eMail, string passwordHash, string role)
         {
-            return new UserDto
-            {
-                UserName = userName,
-                Email = eMail,
-                PasswordHash = passwordHash,
-                Role = role
-            };
+            UserName = userName;
+            Email = eMail;
+            PasswordHash = passwordHash;
+            Role = role;
+
+            return this;
         }
 
     }

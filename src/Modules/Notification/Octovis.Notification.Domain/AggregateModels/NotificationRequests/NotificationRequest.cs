@@ -2,6 +2,7 @@
 using Octovis.SharedKernel.Domain;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,7 +11,6 @@ namespace Octovis.Notification.Domain.AggregateModels.NotificationRequests
 {
     public abstract class NotificationRequest : Entity, IAggregateRoot
     {
-        public Guid Id { get; private set; }
         public NotificationStatus Status { get; private set; }
         public int RetryCount { get; private set; }
         public int MaxRetry { get; private set; }
@@ -21,40 +21,37 @@ namespace Octovis.Notification.Domain.AggregateModels.NotificationRequests
         private readonly List<NotificationLog> _logs = new();
         public IReadOnlyCollection<NotificationLog> Logs => _logs;
 
-        protected NotificationRequest(int maxRetry)
+        protected NotificationRequest()
         {
-            Id = Guid.NewGuid();
             CreatedAt = DateTime.UtcNow;
             Status = NotificationStatus.Pending;
             RetryCount = 0;
-            MaxRetry = maxRetry;
+            MaxRetry = 3;
         }
-
-        public void MarkAsProcessing()
-        {
-            Status = NotificationStatus.Processing;
-            ProcessedAt = DateTime.UtcNow;
-        }
-
-        public void MarkAsSent()
-        {
-            Status = NotificationStatus.Processed;
-            SentAt = DateTime.UtcNow;
-        }
-
-        public void MarkAsFailed(string response)
+       
+       
+        public void IncreaseRetry()
         {
             RetryCount++;
-            Status = RetryCount >= MaxRetry ? NotificationStatus.Failed : NotificationStatus.Pending;
-            AddLog(false, response);
         }
-
-        public void AddLog(bool success, string response)
+        public void MarkAsSent()
         {
-            _logs.Add(new NotificationLog(RetryCount, success, response));
+            Status = NotificationStatus.Completed;
+            ProcessedAt = DateTime.UtcNow;
         }
+        public void MarkAsFailed()
+        {
+            RetryCount++;
 
+            if (RetryCount >= MaxRetry)
+            {
+                Status = NotificationStatus.Failed;
+            }
+        }
+        public bool CanBeSent() => Status == NotificationStatus.Pending && RetryCount < MaxRetry;
         public bool CanRetry() => RetryCount < MaxRetry;
+
+       
     }
 
 }

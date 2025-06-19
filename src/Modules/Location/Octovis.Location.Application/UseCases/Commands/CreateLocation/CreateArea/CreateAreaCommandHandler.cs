@@ -17,9 +17,9 @@ namespace Octovis.Location.Application.UseCases.Commands.CreateLocation.CreateAr
     {
         private readonly IAuthorizationService _authService;
         private readonly ILocationRepository _locationRepository;
-        private readonly IUnitOfWork _unitOfWork;
+        private readonly ILocationUnitOfWork _unitOfWork;
 
-        public CreateAreaCommandHandler(ILocationRepository locationRepository, IUnitOfWork unitOfWork, IAuthorizationService authService)
+        public CreateAreaCommandHandler(ILocationRepository locationRepository, ILocationUnitOfWork unitOfWork, IAuthorizationService authService)
         {
             _locationRepository = locationRepository;
             _unitOfWork = unitOfWork;

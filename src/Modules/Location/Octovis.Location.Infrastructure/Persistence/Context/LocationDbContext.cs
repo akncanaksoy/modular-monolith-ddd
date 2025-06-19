@@ -33,5 +33,8 @@ namespace Octovis.Location.Infrastructure.Persistence.Context
             modelBuilder.ApplyConfigurationsFromAssembly(typeof(LocationDbContext).Assembly);
             base.OnModelCreating(modelBuilder);
         }
+
+
+
     }
 }

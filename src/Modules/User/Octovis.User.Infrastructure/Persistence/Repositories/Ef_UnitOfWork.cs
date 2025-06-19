@@ -1,4 +1,5 @@
 ﻿using Octovis.SharedKernel.Domain;
+using Octovis.User.Application.Interfaces.Repositories;
 using Octovis.User.Infrastructure.Persistence.Context;
 using System;
 using System.Collections.Generic;
@@ -8,12 +9,12 @@ using System.Threading.Tasks;
 
 namespace Octovis.User.Infrastructure.Persistence.Repositories
 {
-    public class Ef_UnitOfWork : IUnitOfWork
+    public class Ef_UserUnitOfWork : IUserUnitOfWork
     {
 
         private readonly UserDbContext _context;
 
-        public Ef_UnitOfWork(UserDbContext context)
+        public Ef_UserUnitOfWork(UserDbContext context)
         {
             _context = context;
         }

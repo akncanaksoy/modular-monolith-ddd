@@ -46,6 +46,15 @@ namespace Octovis.Location.Domain.AggregateModels.Addresses
 
         }
 
+        public class User
+        {
+            public string Name { get; private set; }
+            public string Password { get; private set; }
+
+
+           
+        }
+
     }
 
 }

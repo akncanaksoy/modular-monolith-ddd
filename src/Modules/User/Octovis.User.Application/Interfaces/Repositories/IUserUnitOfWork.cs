@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Octovis.SharedKernel.Domain
+namespace Octovis.User.Application.Interfaces.Repositories
 {
-    public interface IUnitOfWork
+    public interface IUserUnitOfWork
     {
         Task BeginTransactionAsync();
         Task CommitAsync();

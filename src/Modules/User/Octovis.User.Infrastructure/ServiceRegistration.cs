@@ -15,6 +15,7 @@ namespace Octovis.User.Infrastructure
             var assm = Assembly.GetExecutingAssembly();
 
             services.AddScoped<IUserRepository, Ef_UserRepository>();
+            services.AddScoped<IUserUnitOfWork, Ef_UserUnitOfWork>();
 
             services.AddDbContext<UserDbContext>(options =>
              options.UseNpgsql(configuration.GetConnectionString("DefaultConnection")));

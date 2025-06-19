@@ -10,7 +10,7 @@ namespace Octovis.Notification.Domain.AggregateModels.NotificationRequests
     {
         Pending,
         Processing,
-        Processed,
+        Completed,
         Failed
     }
 }

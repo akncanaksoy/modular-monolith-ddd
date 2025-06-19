@@ -19,10 +19,10 @@ namespace Octovis.Location.Application.UseCases.Commands.CreateAddress
     {
         private readonly IAddressRepository _addressRepository;
         private readonly IAuthorizationService _authService;
-        private readonly IUnitOfWork _unitOfWork;
+        private readonly ILocationUnitOfWork _unitOfWork;
 
    
-        public AddAddressCommandHandler(IAddressRepository addressRepository, IUnitOfWork unitOfWork, IUserService userService, IAuthorizationService authService)
+        public AddAddressCommandHandler(IAddressRepository addressRepository, ILocationUnitOfWork unitOfWork, IUserService userService, IAuthorizationService authService)
         {
             _addressRepository = addressRepository;
             _unitOfWork = unitOfWork;

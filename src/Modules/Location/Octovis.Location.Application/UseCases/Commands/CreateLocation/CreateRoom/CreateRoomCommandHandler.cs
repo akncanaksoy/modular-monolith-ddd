@@ -13,9 +13,9 @@ namespace Octovis.Location.Application.UseCases.Commands.CreateLocation.CreateRo
     {
 
         private readonly ILocationRepository _locationRepository;
-        private readonly IUnitOfWork _unitOfWork;
+        private readonly ILocationUnitOfWork _unitOfWork;
 
-        public CreateRoomCommandHandler(ILocationRepository locationRepository, IUnitOfWork unitOfWork)
+        public CreateRoomCommandHandler(ILocationRepository locationRepository, ILocationUnitOfWork unitOfWork)
         {
             _locationRepository = locationRepository;
             _unitOfWork = unitOfWork;

@@ -19,7 +19,7 @@ namespace Octovis.Location.Infrastructure
         {
             var assm = Assembly.GetExecutingAssembly();
 
-            services.AddScoped<IUnitOfWork, Ef_UnitOfWork>();
+            services.AddScoped<ILocationUnitOfWork, Ef_LocationUnitOfWork>();
             services.AddScoped<ILocationRepository, Ef_LocationRepository>();
             services.AddScoped<IAddressRepository, Ef_AddressRepository>();
 
@@ -27,6 +27,7 @@ namespace Octovis.Location.Infrastructure
             services.AddScoped<IAuthorizationService, AuthorizationService>();
 
             services.AddScoped<IIntegrationEventPublisher, IntegrationEventPublisher>();
+            services.AddScoped<IDomainEventDispatcher, MediatRDomainEventDispatcher>();
 
             services.AddDbContext<LocationDbContext>(options =>
                  options.UseNpgsql(configuration.GetConnectionString("DefaultConnection")));

@@ -13,9 +13,9 @@ namespace Octovis.Location.Application.UseCases.Commands.CreateLocation.CreateCo
     {
         private readonly IAuthorizationService _authService;
         private readonly ILocationRepository _locationRepository;
-        private readonly IUnitOfWork _unitOfWork;
+        private readonly ILocationUnitOfWork _unitOfWork;
 
-        public CreateCompanyCommandHandler(ILocationRepository locationRepository, IUnitOfWork unitOfWork, IAuthorizationService authService)
+        public CreateCompanyCommandHandler(ILocationRepository locationRepository, ILocationUnitOfWork unitOfWork, IAuthorizationService authService)
         {
             _locationRepository = locationRepository;
             _unitOfWork = unitOfWork;
