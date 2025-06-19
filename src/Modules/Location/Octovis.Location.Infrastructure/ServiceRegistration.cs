@@ -15,7 +15,7 @@ namespace Octovis.Location.Infrastructure
 {
     public static class ServiceRegistration
     {
-        public static IServiceCollection AddLocationInfrastructureRegistration(this IServiceCollection services,IConfiguration configuration)
+        public static IServiceCollection AddNotificationInfrastructureRegistration(this IServiceCollection services,IConfiguration configuration)
         {
             var assm = Assembly.GetExecutingAssembly();
 

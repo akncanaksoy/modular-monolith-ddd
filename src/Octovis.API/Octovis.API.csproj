@@ -20,6 +20,8 @@
 
     <ProjectReference Include="..\Modules\Location\Octovis.Location.Application\Octovis.Location.Application.csproj" />
     <ProjectReference Include="..\Modules\Location\Octovis.Location.Infrastructure\Octovis.Location.Infrastructure.csproj" />
+    <ProjectReference Include="..\Modules\Notification\Octovis.Notification.Application\Octovis.Notification.Application.csproj" />
+    <ProjectReference Include="..\Modules\Notification\Octovis.Notification.Infrastructure\Octovis.Notification.Infrastructure.csproj" />
     <ProjectReference Include="..\Modules\User\Octovis.User.Application\Octovis.User.Application.csproj" />
     <ProjectReference Include="..\Modules\User\Octovis.User.Infrastructure\Octovis.User.Infrastructure.csproj" />
   </ItemGroup>

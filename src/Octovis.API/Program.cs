@@ -5,6 +5,8 @@ using Microsoft.AspNetCore.StaticFiles.Infrastructure;
 using Octovis.API.Middlewares;
 using Octovis.Location.Application;
 using Octovis.Location.Infrastructure;
+using Octovis.Notification.Application;
+using Octovis.Notification.Infrastructure;
 using Octovis.User.Application;
 using Octovis.User.Infrastructure;
 
@@ -60,6 +62,12 @@ namespace Octovis.API
 
             builder.Services.AddLocationApplicationRegistration();
             builder.Services.AddLocationInfrastructureRegistration(builder.Configuration);
+
+
+            builder.Services.AddNotificationApplicationRegistration();
+            builder.Services.AddNotificationInfrastructureRegistration(builder.Configuration);
+
+
 
         }
     }

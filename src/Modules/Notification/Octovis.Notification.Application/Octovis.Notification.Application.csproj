@@ -6,4 +6,13 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="MediatR" Version="12.5.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Location\Octovis.Location.Contract\Octovis.Location.Contract.csproj" />
+    <ProjectReference Include="..\Octovis.Notification.Domain\Octovis.Notification.Domain.csproj" />
+  </ItemGroup>
+
 </Project>
