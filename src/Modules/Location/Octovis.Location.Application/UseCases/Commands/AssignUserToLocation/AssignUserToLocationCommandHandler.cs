@@ -30,13 +30,29 @@ namespace Octovis.Location.Application.UseCases.Commands.AssignUserToLocation
 
             // belki burada sonra  o locationa ait mi diye bakılır. 
 
+           await _unitOfWork.BeginTransactionAsync();
+
+            try
+            {
+
+
+                await _unitOfWork.CommitAsync();
+            }
+            catch
+            {
+                await _unitOfWork.RollbackAsync();
+            }
             var userDto = await _userService.GetUserByIdAsync(new GetUserByIdQuery { UserId = request.UserId });
+
             if (userDto == null) throw new NotFoundExpcetion($"User {request.UserId.ToString()} not found"); 
 
             var location = await _locationRepository.GetByIdAsync(request.LocationId, cancellationToken);
+            
             if (location == null) throw new NotFoundExpcetion($"Location {request.LocationId.ToString()} not found");
 
             location.AddUser(request.UserId,userDto.UserName);
+
+            await _locationRepository.AddAsync(location, cancellationToken);
 
             await _unitOfWork.SaveChangesAsync(cancellationToken);
 

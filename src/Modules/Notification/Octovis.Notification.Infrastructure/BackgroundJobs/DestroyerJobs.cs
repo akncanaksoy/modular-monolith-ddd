@@ -3,7 +3,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Octovis.Notification.Application.UseCases.Commands.SendNotification;
-using Octovis.Notification.Application.UseCases.Queries.GetNotifications;
+using Octovis.Notification.Application.UseCases.Queries.GetPendingStatusNotification;
 
 
 namespace Octovis.Notification.Infrastructure.BackgroundJobs

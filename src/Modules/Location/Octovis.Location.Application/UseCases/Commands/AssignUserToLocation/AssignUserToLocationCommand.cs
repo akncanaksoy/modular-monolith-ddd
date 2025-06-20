@@ -19,4 +19,6 @@ namespace Octovis.Location.Application.UseCases.Commands.AssignUserToLocation
             LocationId = locationId;
         }
     }
+
+    
 }

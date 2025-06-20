@@ -16,4 +16,8 @@
     <ProjectReference Include="..\Octovis.Notification.Domain\Octovis.Notification.Domain.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="UseCases\Queries\GetNotifications\" />
+  </ItemGroup>
+
 </Project>

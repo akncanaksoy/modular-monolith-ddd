@@ -1,14 +1,10 @@
 ﻿using MediatR;
 using Octovis.Location.Contract.IntegrationEvents;
-using Octovis.Notification.Application.UseCases.Commands;
 using Octovis.Notification.Application.UseCases.Commands.CreateNotification.CreateEmail;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Octovis.Notification.Application.UseCases.Commands.UserAddedToLocationCreateNotification;
 
-namespace Octovis.Notification.Application.EventHandlers
+
+namespace Octovis.Notification.Application.EventHandlers.IntegrationEventHandlers
 {
     public class UserAssignedToLocationIntegrationEventHandler : INotificationHandler<UserAssignedToLocationIntegrationEvent>
     {
@@ -22,10 +18,9 @@ namespace Octovis.Notification.Application.EventHandlers
         public async Task Handle(UserAssignedToLocationIntegrationEvent @event, CancellationToken cancellationToken)
         {
 
-            var command = new CreateEmailNotificationRequestsCommand(
-                EmailTo: @event.UserName + "@domain.com",
-                Subject: "Yeni Lokasyon Ataması",
-                Body: $"{@event.LocationName} adlı lokasyona atandınız."
+            var command = new UserAssingToLocationEmailNotificationRequestsCommand(
+
+               @event.UserId, @event.LocationId
             );
 
             await _mediator.Send(command, cancellationToken);

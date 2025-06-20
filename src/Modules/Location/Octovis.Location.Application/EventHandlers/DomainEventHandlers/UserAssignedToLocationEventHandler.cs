@@ -9,7 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Octovis.Location.Application.EventHandlers
+namespace Octovis.Location.Application.EventHandlers.DomainEventHandlers
 {
     public class UserAssignedToLocationCreatedEventHandler : INotificationHandler<UserAssignedToLocationCreatedEvent>
     {

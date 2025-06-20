@@ -8,7 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Octovis.Notification.Application.UseCases.Queries.GetNotifications
+namespace Octovis.Notification.Application.UseCases.Queries.GetPendingStatusNotification
 {
     public class GetNotificationStatusPendingHandler : IRequestHandler<GetNotificationPendingStatusQuery, GetNotificationPendingStatusResponse>
     {

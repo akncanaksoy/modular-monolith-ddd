@@ -21,11 +21,13 @@ namespace Octovis.Notification.Application.UseCases.Commands.SendNotification
         public SendNotificationCommandHandler(
             IEmailService emailService,
             ISmsService smsService,
-            INotificationRequestRepository repository)
+            INotificationRequestRepository repository,
+            INotificationUnitOfWork unitOfWork)
         {
             _emailService = emailService;
             _smsService = smsService;
             _repository = repository;
+            _unitOfWork = unitOfWork;
         }
 
         public async Task Handle(SendNotificationCommand request, CancellationToken cancellationToken)
